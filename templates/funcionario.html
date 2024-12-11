@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Página do Funcionário</title>
+    <style>
+        body {
+            background-color: #FFFFF0; /* Cor de fundo suave */
+            font-family: 'Arial', sans-serif; /* Fonte simples e legível */
+            color: #A5765D; /* Cor do texto principal */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza o conteúdo */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Tamanho do título principal */
+            margin-bottom: 20px; /* Espaçamento abaixo do título */
+            color: #CE7E5D; /* Cor do título */
+        }
+
+        h2 {
+            font-size: 2em; /* Tamanho do subtítulo */
+            margin-top: 30px; /* Espaçamento acima do subtítulo */
+            color: #A5765D; /* Cor do subtítulo */
+        }
+
+        h3 {
+            font-size: 1.5em; /* Tamanho do subtítulo menor */
+            margin-top: 20px; /* Espaçamento acima do subtítulo menor */
+            color: #A5765D; /* Cor do subtítulo menor */
+        }
+
+        ul {
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o padding padrão */
+            width: 100%; /* Largura total */
+            max-width: 600px; /* Largura máxima da lista */
+            margin: 0; /* Remove a margem padrão */
+        }
+
+        li {
+            background-color: #EFCBA1; /* Cor de fundo dos itens da lista */
+            padding: 15px; /* Espaçamento interno dos itens */
+            margin: 10px 0; /* Espaçamento entre os itens */
+            border-radius: 5px; /* Bordas arredondadas */
+            display: flex; /* Flexbox para alinhar os itens */
+            justify-content: space-between; /* Espaço entre o texto e o botão */
+            align-items: center; /* Alinha verticalmente */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        button {
+            background-color: #CE7E5D; /* Cor de fundo do botão */
+            color: #FFFFFF; /* Cor do texto do botão */
+            padding: 10px; /* Espaçamento interno do botão */
+            border: none; /* Remove a borda padrão */
+            border-radius: 5px; /* Bordas arredondadas */
+            cursor: pointer; /* Muda o cursor ao passar o mouse */
+            font-size: 0.9em; /* Tamanho da fonte do botão */
+            transition: background-color 0.3s; /* Transição suave para hover */
+        }
+
+        button:hover {
+            background-color: #A5765D; /* Cor de fundo ao passar o mouse */
+        }
+
+        a {
+            margin-top: 20px; /* Espaçamento acima do link */
+            color: #A5765D; /* Cor do texto do link */
+            text-decoration: none; /* Remove o sublinhado */
+            font-size: 1em; /* Tamanho da fonte do link */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Sublinha ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <h1>Página do Funcionário</h1>
+    <h2>Bem-vindo, {{ current_user.nomeusu }}</h2>
+    
+    <h3>Minhas Funções</h3>
+    <ul>
+        {% for funcionario_funcao in funcionario_funcoes %}
+            <li>
+                {{ funcionario_funcao.funcao.nome }} - {{ funcionario_funcao.funcao.descricao }}
+                <form action="{{ url_for('remover_funcao', funcionario_funcao_id=funcionario_funcao.id) }}" method="POST" style="display:inline;">
+                    <button type="submit">Remover</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Funções Disponíveis</h2>
+    <ul>
+        {% for funcao in funcoes %}
+            <li>
+                {{ funcao.nome }} - {{ funcao.descricao }}
+                <form method="POST" action="{{ url_for('adicionar_funcao', funcionario_id=current_user.id, funcao_id=funcao.id) }}" style="display:inline;">
+                    <button type="submit">Adicionar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('logout') }}">Sair</a>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Funcionário</title>
+    <style>
+        body {
+            background-color: #FFFFF0; /* Cor de fundo suave */
+            font-family: 'Arial', sans-serif; /* Fonte simples e legível */
+            color: #A5765D; /* Cor do texto principal */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza o conteúdo */
+            justify-content: center; /* Centraliza verticalmente */
+            height: 100vh; /* Altura total da tela */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Tamanho do título */
+            margin-bottom: 20px; /* Espaçamento abaixo do título */
+            color: #CE7E5D; /* Cor do título */
+        }
+
+        form {
+            background-color: #EFCBA1; /* Cor de fundo do formulário */
+            padding: 20px; /* Espaçamento interno do formulário */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            width: 300px; /* Largura do formulário */
+            text-align: center; /* Centraliza o texto do formulário */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%; /* Largura total */
+            padding: 10px; /* Espaçamento interno */
+            margin: 10px 0; /* Espaçamento entre os campos */
+            border: 1px solid #A5765D; /* Borda do campo */
+            border-radius: 5px; /* Bordas arredondadas */
+            font-size: 1em; /* Tamanho da fonte */
+        }
+
+        button {
+            background-color: #CE7E5D; /* Cor de fundo do botão */
+            color: #FFFFFF; /* Cor do texto do botão */
+            padding: 10px; /* Espaçamento interno do botão */
+            border: none; /* Remove a borda padrão */
+            border-radius: 5px; /* Bordas arredondadas */
+            cursor: pointer; /* Muda o cursor ao passar o mouse */
+            font-size: 1em; /* Tamanho da fonte do botão */
+            transition: background-color 0.3s; /* Transição suave para hover */
+            margin-top: 10px; /* Espaçamento acima do botão */
+        }
+
+        button:hover {
+            background-color: #A5765D; /* Cor de fundo ao passar o mouse */
+        }
+
+        a {
+            margin-top: 15px; /* Espaçamento acima do link */
+            color: #A5765D; /* Cor do texto do link */
+            text-decoration: none; /* Remove o sublinhado */
+            font-size: 0.9em; /* Tamanho da fonte do link */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Sublinha ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <h1>Registrar Funcionário</h1>
+    <form method="POST">
+        <input type="text" name="nomeusu" placeholder="Nome de Usuário" required>
+        <input type="password" name="senha" placeholder="Senha" required>
+        <button type="submit">Registrar</button>
+    </form>
+    <a href="{{ url_for('home') }}">Voltar para a Home</a>
+</body>
+</html>

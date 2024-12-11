@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Bem-vindo ao Site da Padaria</title>
+    <style>
+        body {
+            background-color: #FFFFF0; /* Cor de fundo suave */
+            font-family: 'Arial', sans-serif; /* Fonte simples e legível */
+            color: #A5765D; /* Cor do texto principal */
+            margin: 0;
+            padding: 20px;
+            text-align: center; /* Centraliza o texto */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Tamanho do título */
+            margin-bottom: 20px; /* Espaçamento abaixo do título */
+            color: #CE7E5D; /* Cor do título */
+        }
+
+        a {
+            display: inline-block; /* Para que o padding funcione */
+            margin: 10px 20px; /* Espaçamento entre os links */
+            padding: 10px 20px; /* Espaçamento interno dos links */
+            text-decoration: none; /* Remove o sublinhado */
+            color: #FFFFFF; /* Cor do texto dos links */
+            background-color: #EFCBA1; /* Cor de fundo dos links */
+            border-radius: 5px; /* Bordas arredondadas */
+            transition: background-color 0.3s; /* Transição suave para hover */
+        }
+
+        a:hover {
+            background-color: #CE7E5D; /* Cor de fundo ao passar o mouse */
+        }
+
+        footer {
+            margin-top: 40px; /* Espaçamento acima do rodapé */
+            font-size: 0.9em; /* Tamanho da fonte do rodapé */
+            color: #A5765D; /* Cor do texto do rodapé */
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao Site da Padaria</h1>
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('registrar') }}">Registrar Cliente</a>
+    <a href="{{ url_for('colocar_funcionario') }}">Registrar Funcionário</a>
+
+    <footer>
+        <p>&copy; 2023 Padaria Deliciosa. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
